@@ -1,26 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1 class="title">{{ism}}</h1>
+    <h1>{{count}}</h1>
+    <h1>{{fullname}}</h1>
+    <button @click="plus()">plus</button>
+    <button @click="minus()">Minus</button>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+// import BaseBtnVue from './components/BaseBtn.vue';
+  export default {
+    data() {
+      return {
+        ism: 'ghostjon pubg please subcribes',
+        fam: 'My name is Dior',
+        count: 0
+      }
+    },
+    methods: {
+      plus() {
+        this.count++
+      },
+      minus(){
+        this.count--
+      }
+    },
+    computed: {
+      fullname() {
+        return this.ism + this.fam 
+      }
+    },
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
 </style>
